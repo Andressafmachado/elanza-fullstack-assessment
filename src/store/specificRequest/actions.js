@@ -24,24 +24,26 @@ export function fetchSpecificRequest(id) {
 }
 
 //add request
-export const newRequest = (
-  clientname,
-  caretype,
+export const newRequest = ({
+  careType,
   startDate,
   endDate,
-  extraInformation
-) => {
+  clientName,
+  extraInformation,
+}) => {
   return async (dispatch) => {
+    console.log("action", careType);
     try {
       const response = await axios.post(`${apiUrl}/requests`, {
-        clientname,
-        caretype,
+        careType,
         startDate,
         endDate,
+        clientName,
         extraInformation,
       });
 
       dispatch(Request(response.data));
+      console.log("response", response.data);
     } catch (e) {
       console.error(e);
     }
