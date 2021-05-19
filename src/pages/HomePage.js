@@ -6,6 +6,7 @@ import { selectTodayRequests } from "../store/todayRequests/selectors";
 import { useSelector, useDispatch } from "react-redux";
 import RequestCard from "../components/requestCard";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -37,7 +38,9 @@ export default function HomePage() {
           );
         })
       )}
-      <Button>create new request</Button>
+      <Link to="./newrequest">
+        <Button>create new request</Button>
+      </Link>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import "./App.css";
 import HomePage from "./pages/HomePage";
 import { Switch, Route, Link } from "react-router-dom";
 import RequestDetails from "./pages/RequestDetails";
+import NewRequestPage from "./pages/NewRequestPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/requests/:id" component={RequestDetails} />
+        <Route path="/newrequest" component={NewRequestPage} />
       </Switch>
     </div>
   );

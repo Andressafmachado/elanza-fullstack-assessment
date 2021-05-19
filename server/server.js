@@ -44,7 +44,13 @@ app.post("/requests", async (req, res, next) => {
     if (!careType || !clientName) {
       res.status(400).send("Must provide care type and client name");
     } else {
-      const request = await Request.create(req.body);
+      const request = await Request.create({
+        careType,
+        startDate,
+        endDate,
+        clientName,
+        extraInformation,
+      });
       res.json(request);
     }
   } catch (e) {
